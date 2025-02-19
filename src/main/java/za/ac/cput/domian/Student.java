@@ -35,17 +35,16 @@ public class Student {
             return this;
         }
         public  Builder setAge(int age) {
-            if (age > 16 && age < 150 )
-            {
+//            if (age > 16 && age < 150 )
+//            {
                 this.age = age;
-            }
+//            }
             return this;
         }
 
         public Student build() {
 
             return new Student(this);
-
         }
 
 
