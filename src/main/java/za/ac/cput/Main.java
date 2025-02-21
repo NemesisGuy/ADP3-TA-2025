@@ -12,6 +12,7 @@ public class Main {
         System.out.println(student.toString());
         System.out.println(student2.toString()) ;
 
+
     }
 }
 
