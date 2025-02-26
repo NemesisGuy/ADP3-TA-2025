@@ -2,31 +2,44 @@ package za.ac.cput;
 
 
 import za.ac.cput.domian.Course;
+import za.ac.cput.domian.Student;
 import za.ac.cput.factory.CoursesFactory;
+import za.ac.cput.factory.StudentFactory;
+import za.ac.cput.util.Helper;
+import za.ac.cput.util.IDGenerator;
+
+import java.rmi.server.UID;
+import java.sql.PreparedStatement;
+import java.util.Random;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
 
-//        Student student = StudentFactory.createStudent("jane doe" , 20);
-//        Student student2 = StudentFactory.createStudent("jhon wick" , 21);
-//
-//        System.out.println(student.toString());
-////        System.out.println(student2.toString()) ;
-//        Course course =  new Course(1, "adp", 50);
+        Course course = CoursesFactory.createCourse(1, "Project 3", 20);
+        Course course2 = CoursesFactory.createCourse(2, "ADP 3", 30);
+        Course course3 = CoursesFactory.createCourse(IDGenerator.generateIntId(), "PROJ MAN 3", 40);
+        Course course4 = CoursesFactory.createCourse(IDGenerator.generateIntId(), " ADT 3 ", 40);
+        Course course5 = CoursesFactory.createCourse(Helper.generateIntId(), Helper.generateUUIdCozImCold(), 40);
 
-//        Course course2 =  new Course(2"adp", 100);
 
-//        Course course =  new Course(1, "adp", 50);
-//        Course courseB =  new Course( 30);
-//        Course courseB =  new Course( 4, "adp4");
+        Student student = StudentFactory.createStudent(Helper.generateUUIdCozImCold(),"John", 22);
+//Course course6 = new Course(builder);
 
-        Course course = CoursesFactory.createCourse(1, "adp2", 20);
-        Course course2 = CoursesFactory.createCourse(2, "adp3", 30);
+//Srting ID UUID;
+//Int id;
         System.out.println(course.toString());
         System.out.println(course2.toString());
+        System.out.println(course3.toString());
+        System.out.println(course4.toString());
+        System.out.println(student.toString());
+        System.out.println(course5.toString());
+
+//        System.out.println(new Random().nextInt(Integer.MAX_VALUE));
+//        System.out.println(UUID.randomUUID().toString());
 
 
-
+//        System.out.println(course.toString());
         //   System.out.println(course.toString());
     }
 

@@ -1,6 +1,7 @@
 package za.ac.cput.domian;
 
 public class Student {
+    private String id;
     private String name;
     private int age;
 
@@ -12,22 +13,30 @@ public class Student {
     }
 
     private Student(Builder builder) {
+        this.id = builder.id;
         this.name = builder.name;
         this.age = builder.age;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
 
     public static class Builder{
+        private String id;
         private String name;
         private int age;
 
+        public Builder setId(String id) {
+            this.id = id;
+            return this;
+        }
         public Builder setName(String name) {
             this.name = name;
             return this;

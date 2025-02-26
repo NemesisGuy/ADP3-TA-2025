@@ -1,14 +1,13 @@
 package za.ac.cput.domian;
 //pojo
 public class Course {
-    //id
-    //name
-    //credits
-    //pojo for course
-    //encapsulation for course
-    //builder for course
-
-    //factory for course
+    //id                               // done
+    //name                             // done
+    //credits                          // done
+    //pojo for course                  // done
+    //encapsulation for course         // done
+    //builder for course               // done
+    //factory for course               // done
 
     //null check for course
     //email valid (changes to the student call to add attribute called email )
@@ -43,19 +42,28 @@ public class Course {
 
     }
 
-
     public static class Builder {
         private int id;
         private String name;
         private int credits;
 
         public Builder setId(int id) {
-            this.id = id;
+            if (id < 0) {
+                System.out.println("Invalid ID");
+            } else {
+                this.id = id;
+            }
+
             return this;
         }
 
         public Builder setName(String name) {
-            this.name = name;
+            if (name == null || name.trim().isEmpty()) {
+                System.out.println("Invalid name");
+            } else {
+                this.name = name;
+            }
+
             return this;
         }
 
