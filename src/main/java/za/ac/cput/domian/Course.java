@@ -1,4 +1,7 @@
 package za.ac.cput.domian;
+
+import java.util.ArrayList;
+
 //pojo
 public class Course {
     //id                               // done
@@ -15,8 +18,17 @@ public class Course {
     private int id;
     private String name;
     private int credits;
+    private int maxStudents ;
+    private ArrayList<Student> students ;
 
 
+    private Course(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.credits = builder.credits;
+        this.maxStudents = builder.maxStudents;
+        this.students = new ArrayList<>(maxStudents);
+    }
 
     public int getId() {
         return id;
@@ -27,25 +39,50 @@ public class Course {
     public int getCredits() {
         return credits;
     }
+    public int getMaxStudents() {
+        return maxStudents;
+    }
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+    //way to add individual students to the list of students
+    public void addStudent(Student student) {
+        if (isThereSpace())
+            students.add(student);
+        else {
+            System.out.println("Course is full");
+        }
 
-    private Course(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.credits = builder.credits;
+    }
+    //Lets check if there is space for more students
+    public boolean isThereSpace() {
+        return students.size() < maxStudents;
+
+    }
+    public int getStudentCount() {
+        return students.size();
+    }
+    public int getAvailableSpace() {
+        return maxStudents - students.size();
     }
 
     @Override
     public String toString() {
-
-
-        return "Course{" + "id=" + id + ", name='" + name + '\'' + ", credits=" + credits + '}';
-
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", credits=" + credits +
+                ", maxStudents=" + maxStudents +
+                ", students=" + students +
+                '}';
     }
 
     public static class Builder {
         private int id;
         private String name;
         private int credits;
+        private int maxStudents;
+        private ArrayList<Student> students;
 
         public Builder setId(int id) {
             if (id < 0) {
@@ -69,6 +106,14 @@ public class Course {
 
         public Builder setCredits(int credits) {
             this.credits = credits;
+            return this;
+        }
+        public Builder setMaxStudents(int maxStudents) {
+            this.maxStudents = maxStudents;
+            return this;
+        }
+        public Builder setStudents(ArrayList<Student> students) {
+            this.students = students;
             return this;
         }
 
