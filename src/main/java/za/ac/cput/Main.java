@@ -38,17 +38,14 @@ public class Main {
         System.out.println(student.toString().toLowerCase());
         System.out.println(course5.toString().toUpperCase());
 
-
-        System.out.println("This is the stuff we looking at for now .......");
-
-        Lecturer lecturer = new LecturerFactory().createLecturer(Helper.IDGenerator.generateAppendedUUID("Lecturer") ,"Mike", "Jones", "example@gmail.com","Adv DIP");
-        Student student1 = new StudentFactory().createStudent(Helper.IDGenerator.generateAppendedUUID( "Student"), "John Deer", 22);
+        Lecturer lecturer = LecturerFactory.createLecturer(Helper.IDGenerator.generateAppendedUUID("Lecturer") ,"Mike", "Jones", "example@gmail.com","Adv DIP");
+        Student student1 = StudentFactory.createStudent(Helper.IDGenerator.generateAppendedUUID( "Student"), "John Deer", 22);
 
         System.out.println(lecturer.toString());
         System.out.println(student1.toString());
 
         /// factory pattern
-        Cleaner cleaner = new CleanerFactory().createCleaner(Helper.IDGenerator.generateAppendedUUID("Cleaner"), "John", "Wick");
+        Cleaner cleaner = CleanerFactory.createCleaner(Helper.IDGenerator.generateAppendedUUID("Cleaner"), "John", "Wick");
 
         System.out.println(cleaner.toString());
 
