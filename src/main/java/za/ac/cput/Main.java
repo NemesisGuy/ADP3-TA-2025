@@ -30,7 +30,6 @@ public class Main {
         System.out.println(course.getStudents().size());
         System.out.println(course.getAvailableSpace());
 
-
         System.out.println(course.toString());
         System.out.println(course2.toString());
         System.out.println(course3.toString());
@@ -48,10 +47,6 @@ public class Main {
         Cleaner cleaner = CleanerFactory.createCleaner(Helper.IDGenerator.generateAppendedUUID("Cleaner"), "John", "Wick");
 
         System.out.println(cleaner.toString());
-
-
-
-
 
 
     }
