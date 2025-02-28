@@ -30,14 +30,16 @@ public class Helper {
         }
         public static boolean isString(String value)
         {
-            return value != null && !value.isEmpty();
+            return value != null && !value.isEmpty()&& !value.trim().isEmpty();
         }
         public static boolean email(String email) {
             try {
                 InternetAddress emailAddr = new InternetAddress(email);
                 emailAddr.validate();
+                System.out.println("Email is valid");
                 return true;
             } catch (Exception e) {
+                System.out.println("Email is not valid");
                 return false;
             }
         }

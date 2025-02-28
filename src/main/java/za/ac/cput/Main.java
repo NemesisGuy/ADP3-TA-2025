@@ -18,7 +18,7 @@ public class Main {
         Course course = CoursesFactory.createCourse(1, "Project 3", 20, 20);
         Course course2 = CoursesFactory.createCourse(2, "ADP 3", 30, 30);
         Course course3 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "PROJ MAN 3", 40, 30);
-        Course course4 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), " ADT 3 ", 40, 30);
+        Course course4 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "ADT 3 ", 40, 30);
         Course course5 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "Prof Dev 3" , 40, 30);
 
         Student student = StudentFactory.createStudent(Helper.IDGenerator.generateUUID(),"John Doe", 22);
@@ -40,36 +40,12 @@ public class Main {
 
 
         System.out.println("This is the stuff we looking at for now .......");
-//
-//        Lecturer lecturer = new Lecturer.Builder()
-//                .setId(Helper.generateUUID())
-//                .setName("Mr.Peter")
-//                .setLastName("Buckingham")
-//                .setQualification("Adv DIP")
-//                .build();
 
-//        System.out.println(lecturer.toString());
-//
-//        System.out.println(lecturer.toString());
-        Lecturer lecturer = new LecturerFactory().createLecturer(Helper.IDGenerator.generateAppendedUUID("Lecturer") ,"Mr.Mike", "Buckingham", "Adv DIP");
-        Student student1 = new StudentFactory().createStudent(Helper.IDGenerator.generateAppendedUUID( "Student"), "John", 22);
+        Lecturer lecturer = new LecturerFactory().createLecturer(Helper.IDGenerator.generateAppendedUUID("Lecturer") ,"Mike", "Jones", "example@gmail.com","Adv DIP");
+        Student student1 = new StudentFactory().createStudent(Helper.IDGenerator.generateAppendedUUID( "Student"), "John Deer", 22);
 
         System.out.println(lecturer.toString());
         System.out.println(student1.toString());
-
-        //max int  = 30 percoruse
-        //if studnts > 30 return execption
-        //else
-        // static Studntcount ++ for each new student
-
-//        Cleaner cleaner = new Cleaner();
-//        cleaner.setId(Helper.generateAppendedUUID("Cleaner"));
-//        cleaner.setName("John");
-//        cleaner.setSurname("Wick");
-//        System.out.println(cleaner.getName());
-//        System.out.println(cleaner.getSurname());
-
-
 
         /// factory pattern
         Cleaner cleaner = new CleanerFactory().createCleaner(Helper.IDGenerator.generateAppendedUUID("Cleaner"), "John", "Wick");
