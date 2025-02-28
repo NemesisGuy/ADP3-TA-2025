@@ -6,7 +6,7 @@ import za.ac.cput.util.Helper;
 public class CleanerFactory {
     public static Cleaner createCleaner(String Id, String name, String surname) {
         Cleaner cleaner = new Cleaner.Builder()
-                .setId(Helper.generateAppendedUUID(Id))
+                .setId(Helper.IDGenerator.generateAppendedUUID(Id))
                 .setName(name)
                 .setSurname(surname)
                 .build();
