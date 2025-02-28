@@ -1,5 +1,7 @@
 package za.ac.cput.domian;
 
+import za.ac.cput.util.Helper;
+
 public class Student {
     private String id;
     private String name;
@@ -33,18 +35,25 @@ public class Student {
         private int age;
 
         public Builder setId(String id) {
-            this.id = id;
+            if (Helper.Validate.isString(id))
+            {
+                this.id = id;
+            }
+
             return this;
         }
         public Builder setName(String name) {
-            this.name = name;
+            if(Helper.Validate.isString(name))
+            {
+                this.name = name;
+            }
             return this;
         }
         public  Builder setAge(int age) {
-//            if (age > 16 && age < 150 )
-//            {
+            if (Helper.Validate.age(age))
+            {
                 this.age = age;
-//            }
+            }
             return this;
         }
 
