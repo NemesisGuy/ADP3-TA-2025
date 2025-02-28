@@ -20,10 +20,8 @@ public class Helper {
         {
             return new Random().nextInt(Integer.MAX_VALUE);
         }
-
-
-
     }
+
     public static class Validate
     {
         public static boolean age(int age)
@@ -43,5 +41,13 @@ public class Helper {
                 return false;
             }
         }
+        public static boolean isNotNull(Object obj) {
+            return obj != null;
+        }
+
+        public static boolean isNull(Object obj) {
+            return obj == null;
+        }
     }
+
 }
