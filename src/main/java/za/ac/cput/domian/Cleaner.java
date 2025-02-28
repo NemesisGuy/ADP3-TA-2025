@@ -2,58 +2,58 @@ package za.ac.cput.domian;
 //
 // pojo
 public class Cleaner {
-    private String Id;
-    private String Name;
-    private String Surname;
+    private String id;
+    private String name;
+    private String surname;
 
     private Cleaner(Builder builder) {
-        this.Id = builder.Id;
-        this.Name = builder.Name;
-        this.Surname = builder.Surname;
+        this.id = builder.id;
+        this.name = builder.name;
+        this.surname = builder.surname;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
 
     @Override
     public String toString() {
         return "Cleaner{" +
-                "Id='" + Id + '\'' +
-                ", Name='" + Name + '\'' +
-                ", Surname='" + Surname + '\'' +
+                "Id='" + id + '\'' +
+                ", Name='" + name + '\'' +
+                ", Surname='" + surname + '\'' +
                 '}';
     }
     public static class Builder {
-        private String Id;
-        private String Name;
-        private String Surname;
+        private String id;
+        private String name;
+        private String surname;
 
-        public Builder setId(String Id) {
-            this.Id = Id;
+        public Builder setId(String id) {
+            this.id = id;
             return this;
         }
-        public Builder setName(String Name) {
-            this.Name = Name;
+        public Builder setName(String name) {
+            this.name = name;
             return this;
         }
-        public Builder setSurname(String Surname) {
-            this.Surname = Surname;
+        public Builder setSurname(String surname) {
+            this.surname = surname;
             return this;
         }
         public Builder copy(Cleaner cleaner){
-            this.Id = cleaner.Id;
-            this.Name = cleaner.Name;
-            this.Surname = cleaner.Surname;
+            this.id = cleaner.id;
+            this.name = cleaner.name;
+            this.surname = cleaner.surname;
             return this;
         }
 
