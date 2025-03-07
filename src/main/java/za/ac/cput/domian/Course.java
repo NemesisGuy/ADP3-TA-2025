@@ -45,7 +45,9 @@ public class Course {
     public ArrayList<Student> getStudents() {
         return students;
     }
+
     //way to add individual students to the list of students
+
     public void addStudent(Student student) {
         if (isThereSpace())
             students.add(student);

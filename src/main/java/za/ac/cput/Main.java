@@ -9,45 +9,33 @@ import za.ac.cput.factory.CleanerFactory;
 import za.ac.cput.factory.CoursesFactory;
 import za.ac.cput.factory.LecturerFactory;
 import za.ac.cput.factory.StudentFactory;
+import za.ac.cput.repository.StudentRepository;
 import za.ac.cput.util.Helper;
 
 
 public class Main {
     public static void main(String[] args) {
+        //we want  the sutdent repo to be created
 
-        Course course = CoursesFactory.createCourse(1, "Project 3", 20, 20);
-        Course course2 = CoursesFactory.createCourse(2, "ADP 3", 30, 30);
-        Course course3 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "PROJ MAN 3", 40, 30);
-        Course course4 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "ADT 3 ", 40, 30);
-        Course course5 = CoursesFactory.createCourse(Helper.IDGenerator.generateIntID(), "Prof Dev 3" , 40, 30);
+        StudentRepository studentRepository = new StudentRepository();
 
-        Student student = StudentFactory.createStudent(Helper.IDGenerator.generateUUID(),"John Doe", 22);
-        Student student2 = StudentFactory.createStudent(Helper.IDGenerator.generateUUID(),"Sipo Lakazie", 21);
-        course.addStudent(student);
-        course.addStudent(student2);
-        System.out.println(course.toString());
-        System.out.println(course.isThereSpace());
-        System.out.println(course.getStudents().size());
-        System.out.println(course.getAvailableSpace());
+        //we want to create a students via the factory
+        Student student = StudentFactory.createStudent("1", "Kamva krishna", 21);
+        Student student2 = StudentFactory.createStudent("2", "Mike Jones", 21);
 
-        System.out.println(course.toString());
-        System.out.println(course2.toString());
-        System.out.println(course3.toString());
-        System.out.println(course4.toString());
-        System.out.println(student.toString().toLowerCase());
-        System.out.println(course5.toString().toUpperCase());
+        //We want to add the students to the repository
+        studentRepository.create(student);
+        studentRepository.create(student2);
 
-        Lecturer lecturer = LecturerFactory.createLecturer(Helper.IDGenerator.generateAppendedUUID("Lecturer") ,"Mike", "Jones", "example@gmail.com","Adv DIP");
-        Student student1 = StudentFactory.createStudent(Helper.IDGenerator.generateAppendedUUID( "Student"), "John Deer", 22);
+        System.out.println(studentRepository.readById("1"));
 
-        System.out.println(lecturer.toString());
-        System.out.println(student1.toString());
+        //we want see what is in the repository at this point
+        System.out.println(studentRepository.getAll());
 
-        /// factory pattern
-        Cleaner cleaner = CleanerFactory.createCleaner(Helper.IDGenerator.generateAppendedUUID("Cleaner"), "John", "Wick");
-
-        System.out.println(cleaner.toString());
-
+        //we want to remove a student from the repository
+        System.out.println( studentRepository.delete("5"));
+        System.out.println(studentRepository.getAll()); //after deleting the student with the id on 1 for example
+        System.out.println(Helper.IDGenerator.generateUUID());
 
     }
 

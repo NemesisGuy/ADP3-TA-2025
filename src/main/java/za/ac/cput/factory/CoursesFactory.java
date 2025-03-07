@@ -5,7 +5,7 @@ import za.ac.cput.domian.Student;
 
 import java.util.ArrayList;
 
-public class CoursesFactory implements IFactory {
+public class CoursesFactory{
 
     public static Course createCourse (int id, String name, int credits, int maxStudents) {
         return new Course.Builder()
@@ -17,8 +17,5 @@ public class CoursesFactory implements IFactory {
     }
 
 
-    @Override
-    public <T> T Create() {
-        return null;
-    }
+
 }

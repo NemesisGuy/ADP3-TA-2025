@@ -8,10 +8,17 @@ public class Student {
     private int age;
 
     public String getName() {
+
         return name;
     }
+
     public int getAge() {
+
         return age;
+    }
+
+    public String getId() {
+        return id;
     }
 
     private Student(Builder builder) {
