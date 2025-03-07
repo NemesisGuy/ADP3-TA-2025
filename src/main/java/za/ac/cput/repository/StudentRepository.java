@@ -35,14 +35,15 @@ public class StudentRepository {
                 return studentsList.get(i);
             }
         }
-
         return null;
     }
+
     public Student update(Student student){
-        if (student !=null && student.getId()!=null)
+        if ( student == null || student.getId()==null )// if the student is not accetable, return null
         {
            return null;
         }
+
         for (int i = 0 ; i < studentsList.size(); i++)
             if(studentsList.get(i).getId().equalsIgnoreCase(student.getId() ))
             {
