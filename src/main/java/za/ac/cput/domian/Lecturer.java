@@ -23,7 +23,7 @@ public class Lecturer {
         this.qualification = builder.qualification;
 
     }
-    //get..setters for pojo
+    //get....setters for pojo
 
     // then we move the setters to the inner builder class
 
