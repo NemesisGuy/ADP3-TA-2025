@@ -11,19 +11,23 @@ public class StudentRepository implements IStudentRepository {
 //arraylist of student
 // singleton
 
-    private List<Student> studentList; //id 1 then id 2
+
+    private List<Student> studentList ; //id 1 then id 2
+
     private StudentRepository() {
+
         this.studentList = new ArrayList<>();
+
     }
 
-    //the one and only instance of the repository
+    //the one and only instance of the repository object
     private static StudentRepository studentRepository = null;
 
     public static StudentRepository getRepository() {
-        if (studentRepository == null) {
-            studentRepository = new StudentRepository();
+        if (studentRepository == null) {  //if thee is none
+            studentRepository = new StudentRepository(); //then create and assign one
         }
-        return studentRepository;
+        return studentRepository; /// return that one instance
     }
 
     // CRUD - Create , Read , Update , Delete
@@ -87,3 +91,4 @@ public class StudentRepository implements IStudentRepository {
 
 
 }
+//

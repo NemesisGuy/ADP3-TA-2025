@@ -1,35 +1,33 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Cleaner;
+import za.ac.cput.domian.Janitor;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CleanerRepository implements ICleanerRepository {
+public class JanitorRepository implements IJanitorRepository {
 
-    private static CleanerRepository repository = null;
-    private Map<String,Cleaner> cleanerList ;
+    private Map<String, Janitor> cleanerList ;
 
-    private CleanerRepository() {
+    private JanitorRepository() {
         this.cleanerList = new HashMap<>();
     }
-
+    private static JanitorRepository repository = null;
 
     //singleton
-    public static CleanerRepository getRepository(){
-        if(repository == null) repository = new CleanerRepository();
+    public static JanitorRepository getRepository(){
+        if(repository == null) repository = new JanitorRepository();
         return repository;
     }
 
-    @Override
-    public List<Cleaner> getAll() {
-        return cleanerList.values().stream().collect(Collectors.toList());
-    }
+    //CRUD methods
+
+
 
     @Override
-    public Cleaner create(Cleaner entity) {
+    public Janitor create(Janitor entity) {
         if(cleanerList.containsKey(entity.getId())){
             System.out.println("Cleaner already exists");
             return null;
@@ -39,7 +37,7 @@ public class CleanerRepository implements ICleanerRepository {
     }
 
     @Override
-    public Cleaner read(String id) {
+    public Janitor read(String id) {
         if(cleanerList.containsKey(id)){
             return cleanerList.get(id);
         }
@@ -49,7 +47,7 @@ public class CleanerRepository implements ICleanerRepository {
     }
 
     @Override
-    public Cleaner update(Cleaner entity) {
+    public Janitor update(Janitor entity) {
         if(cleanerList.containsKey(entity.getId())){
             cleanerList.replace(entity.getId(),entity);
             return cleanerList.get(entity.getId());
@@ -64,5 +62,9 @@ public class CleanerRepository implements ICleanerRepository {
             return true;
         }
         return false;
+    }
+    @Override
+    public List<Janitor> getAll() {
+        return cleanerList.values().stream().collect(Collectors.toList());
     }
 }

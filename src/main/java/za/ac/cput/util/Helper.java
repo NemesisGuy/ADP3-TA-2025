@@ -53,3 +53,8 @@ public class Helper {
     }
 
 }
+
+// hot to know is entity
+// life-time
+// unique
+// thing noun

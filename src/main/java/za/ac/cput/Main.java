@@ -1,14 +1,10 @@
 package za.ac.cput;
 
-import za.ac.cput.domian.Cleaner;
-import za.ac.cput.domian.Course;
-import za.ac.cput.domian.Lecturer;
+import za.ac.cput.domian.Janitor;
 import za.ac.cput.domian.Student;
-import za.ac.cput.factory.CleanerFactory;
-import za.ac.cput.factory.CoursesFactory;
-import za.ac.cput.factory.LecturerFactory;
+import za.ac.cput.factory.JanitorFactory;
 import za.ac.cput.factory.StudentFactory;
-import za.ac.cput.repository.CleanerRepository;
+import za.ac.cput.repository.JanitorRepository;
 import za.ac.cput.repository.StudentRepository;
 import za.ac.cput.util.Helper;
 
@@ -21,8 +17,8 @@ public class Main {
         StudentRepository studentRepository = StudentRepository.getRepository();
 
         //we want to create a students via the factory
-        Student student = StudentFactory.createStudent("1", "Kamva krishna", 21);
-        Student student2 = StudentFactory.createStudent("2", "Mike Jones", 21);
+        Student student = StudentFactory.create("1", "Kamva", "krishna", 21);
+        Student student2 = StudentFactory.create("2", "Mike" ,"Jones", 21);
 
         //We want to add the students to the repository
         studentRepository.create(student); //ome element in the arraylist
@@ -41,15 +37,17 @@ public class Main {
 
         System.out.println("======================= Cleaner Stuff ==============================");
 
-        CleanerRepository cleanerRepository = CleanerRepository.getRepository();
-        Cleaner cleaner = CleanerFactory.createCleaner("1", "Jack Smith", "41");
-        Cleaner cleaner2 = CleanerFactory.createCleaner("2", "Bilal Khan", "23");
-        cleanerRepository.create(cleaner);
-        cleanerRepository.create(cleaner2);
-        System.out.println(cleanerRepository.read("1"));
-        System.out.println(cleanerRepository.getAll());
-        System.out.println(cleanerRepository.delete("1"));
-        System.out.println(cleanerRepository.getAll());
+        JanitorRepository janitorRepository = JanitorRepository.getRepository();
+        Janitor janitor = JanitorFactory.create("1", "Jack", "Smith");
+
+        Janitor janitor2 = JanitorFactory.create("2", "Bilal"," Khan");
+
+        janitorRepository.create(janitor);
+        janitorRepository.create(janitor2);
+        System.out.println(janitorRepository.read("1"));
+        System.out.println(janitorRepository.getAll());
+        System.out.println(janitorRepository.delete("1"));
+        System.out.println(janitorRepository.getAll());
 
 
     }

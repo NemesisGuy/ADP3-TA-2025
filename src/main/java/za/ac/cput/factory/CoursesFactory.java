@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class CoursesFactory{
 
-    public static Course createCourse (int id, String name, int credits, int maxStudents) {
+    public static Course create(int id, String name, int credits, int maxStudents) {
         return new Course.Builder()
                 .setId(id)
                 .setName(name)

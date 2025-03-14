@@ -4,12 +4,17 @@ import za.ac.cput.util.Helper;
 
 public class Student {
     private String id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private int age;
 
-    public String getName() {
+    public String getFirstName() {
 
-        return name;
+        return firstName;
+    }
+    public String getLastName() {
+
+        return lastName;
     }
 
     public int getAge() {
@@ -24,22 +29,17 @@ public class Student {
 
     private Student(Builder builder) {
         this.id = builder.id;
-        this.name = builder.name;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
         this.age = builder.age;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+
 
     public static class Builder{
         private String id;
-        private String name;
+        private String firstName;
+        private String lastName;
         private int age;
 
         public Builder setId(String id) {
@@ -49,10 +49,17 @@ public class Student {
             }
             return this;
         }
-        public Builder setName(String name) {
-            if(Helper.Validate.isString(name))
+        public Builder setFirstName(String firstName) {
+            if(Helper.Validate.isString(firstName))
             {
-                this.name = name;
+                this.firstName = firstName;
+            }
+            return this;
+        }
+        public Builder setLastName(String lastName) {
+            if(Helper.Validate.isString(lastName))
+            {
+                this.lastName = lastName;
             }
             return this;
         }

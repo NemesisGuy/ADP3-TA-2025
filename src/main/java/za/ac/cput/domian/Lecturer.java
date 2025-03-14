@@ -10,14 +10,14 @@ import za.ac.cput.util.Helper;
 
 public class Lecturer {
     private String id;
-    private String name;
+    private String firstName;
     private String lastName;
     private String email;
     private String qualification;
 
     private Lecturer(Builder builder) {
         this.id = builder.id;
-        this.name = builder.name;
+        this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.qualification = builder.qualification;
@@ -30,8 +30,8 @@ public class Lecturer {
     public String getId() {
         return id;
     }
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
     public String getLastName() {
         return lastName;
@@ -45,7 +45,7 @@ public class Lecturer {
     public String toString() {
         return "Lecturer{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", qualification='" + qualification + '\'' +
@@ -54,7 +54,7 @@ public class Lecturer {
 
     public static class Builder{
         private String id;
-        private String name;
+        private String firstName;
         private String lastName;
         private String email;
         private String qualification;
@@ -66,9 +66,9 @@ public class Lecturer {
             }
             return this;
         }
-        public Builder setName(String name){
-            if (Helper.Validate.isString(name)){
-                this.name = name;
+        public Builder setFirstName(String firstName){
+            if (Helper.Validate.isString(firstName)){
+                this.firstName = firstName;
             }
             return this;
         }
@@ -95,7 +95,7 @@ public class Lecturer {
         }
         public Builder copy(Lecturer lecturer){
             this.id = lecturer.id;
-            this.name = lecturer.name;
+            this.firstName = lecturer.firstName;
             this.lastName = lecturer.lastName;
             this.email = lecturer.email;
             this.qualification = lecturer.qualification;
