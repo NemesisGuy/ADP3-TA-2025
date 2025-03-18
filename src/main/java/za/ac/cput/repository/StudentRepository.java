@@ -26,13 +26,13 @@ public class StudentRepository implements IStudentRepository{
     public static StudentRepository getRepository() {
         if (studentRepository == null)
         {                        //if thee is none
-            System.out.println(" this run when null");
+//            System.out.println(" this run when null");
 
             studentRepository = new StudentRepository();        //then create and assign one
         }
         else
         {
-            System.out.println(" this runs when not null ");
+         //   System.out.println(" this runs when not null ");
             return studentRepository;
         }
 

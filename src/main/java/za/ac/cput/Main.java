@@ -30,7 +30,7 @@ public class Main {
         System.out.println(studentRepository.getAll());
 
         //we want to remove a student from the repository
-        System.out.println( studentRepository.delete("1"));
+        System.out.println("del student : " + studentRepository.delete("1"));
         System.out.println(studentRepository.getAll()); //after deleting the student with the id on 1 for example
         System.out.println(Helper.IDGenerator.generateUUID());
 
