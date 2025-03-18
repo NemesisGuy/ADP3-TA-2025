@@ -7,7 +7,7 @@ import java.util.List;
 
 // this is used for storage of data - we start with data structure like arraylist
 // this is the repository for student
-public class StudentRepository implements IStudentRepository {
+public class StudentRepository implements IStudentRepository{
 //arraylist of student
 // singleton
 
@@ -24,10 +24,20 @@ public class StudentRepository implements IStudentRepository {
     private static StudentRepository studentRepository = null;
 
     public static StudentRepository getRepository() {
-        if (studentRepository == null) {  //if thee is none
-            studentRepository = new StudentRepository(); //then create and assign one
+        if (studentRepository == null)
+        {                        //if thee is none
+            System.out.println(" this run when null");
+
+            studentRepository = new StudentRepository();        //then create and assign one
         }
-        return studentRepository; /// return that one instance
+        else
+        {
+            System.out.println(" this runs when not null ");
+            return studentRepository;
+        }
+
+        return studentRepository;
+                                     // return that one instance
     }
 
     // CRUD - Create , Read , Update , Delete
@@ -88,6 +98,7 @@ public class StudentRepository implements IStudentRepository {
     public  List<Student> getAll() {
         return studentList;
     }
+
 
 
 }

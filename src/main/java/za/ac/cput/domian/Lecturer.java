@@ -8,37 +8,38 @@ package za.ac.cput.domian;
 
 import za.ac.cput.util.Helper;
 
-public class Lecturer {
-    private String id;
-    private String firstName;
-    private String lastName;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lecturer extends Employee{
+
     private String email;
     private String qualification;
 
+    private List<Subject> subjects;
+
     private Lecturer(Builder builder) {
-        this.id = builder.id;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
+    super(builder);
         this.email = builder.email;
         this.qualification = builder.qualification;
+        this.subjects = new ArrayList<>();
 
     }
     //get....setters for pojo
 
     // then we move the setters to the inner builder class
 
-    public String getId() {
-        return id;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
     public String getEmail() {return email;}
     public String getQualification() {
         return qualification;
+    }
+    public  List<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public  void addSubject(Subject subject) {
+        subjects.add(subject);
     }
 
     @Override
@@ -52,12 +53,14 @@ public class Lecturer {
                 '}';
     }
 
-    public static class Builder{
-        private String id;
-        private String firstName;
-        private String lastName;
+    public static class Builder extends Employee.Builder<Builder>{
+//        private String id;
+//        private String firstName;
+//        private String lastName;
+
         private String email;
         private String qualification;
+        private  List<Subject> subjects;
 
         public Builder setId(String id){
             if (Helper.Validate.isString(id))
@@ -78,6 +81,16 @@ public class Lecturer {
             }
             return this;
         }
+        public Builder setSubjects(List<Subject> subjects){
+            this.subjects = subjects;
+            return this;
+        }
+
+        @Override
+        protected Builder self() {
+            return this;
+        }
+
         public Builder setEmail(String email){
             if (Helper.Validate.email(email))
             {
@@ -99,6 +112,7 @@ public class Lecturer {
             this.lastName = lecturer.lastName;
             this.email = lecturer.email;
             this.qualification = lecturer.qualification;
+            this.subjects = lecturer.subjects;
             return this;
         }
     }

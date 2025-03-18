@@ -1,42 +1,33 @@
 package za.ac.cput.domian;
 //
 // pojo
-public class Janitor {
-    private String id;
-    private String firstName;
-    private String lastName;
+public class Janitor extends Employee {
+    private String shift;
+
 
     private Janitor(Builder builder) {
-        this.id = builder.id;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
+        super(builder);
+        this.shift = builder.shift;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getShift() {
+        return shift;
     }
 
 
     @Override
     public String toString() {
-        return "Cleaner{" +
-                "Id='" + id + '\'' +
-                ", Name='" + firstName + '\'' +
-                ", Surname='" + lastName + '\'' +
+        return "Janitor{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", shift='" + shift + '\'' +
                 '}';
     }
-    public static class Builder {
-        private String id;
-        private String firstName;
-        private String lastName;
+
+    public static class Builder extends Employee.Builder<Builder> {
+
+        private String shift;
 
         public Builder setId(String id) {
             this.id = id;
@@ -50,10 +41,22 @@ public class Janitor {
             this.lastName = lastName;
             return this;
         }
+
+        @Override
+        protected Builder self() {
+            return this;
+        }
+
+        public Builder setShift(String shift) {
+            this.shift = shift;
+            return this;
+        }
+
         public Builder copy(Janitor janitor){
             this.id = janitor.id;
             this.firstName = janitor.firstName;
             this.lastName = janitor.lastName;
+            this.shift = janitor.shift;
             return this;
         }
 

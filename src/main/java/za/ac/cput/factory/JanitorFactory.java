@@ -3,7 +3,7 @@ package za.ac.cput.factory;
 import za.ac.cput.domian.Janitor;
 
 public class JanitorFactory {
-    public static Janitor create(String id, String firstName, String lastName) {
+    public static Janitor create(String id, String firstName, String lastName, String shift) {
        //valid if true do x else do y
 
         Janitor janitor = new Janitor.Builder()
@@ -11,6 +11,7 @@ public class JanitorFactory {
                 .setId((id))
                 .setFirstName(firstName)
                 .setLastName(lastName)
+                .setShift(shift)
                 .build();
         return janitor;
 

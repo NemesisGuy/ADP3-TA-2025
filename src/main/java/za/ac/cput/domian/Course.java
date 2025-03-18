@@ -20,6 +20,8 @@ public class Course {
     private int credits;
     private int maxStudents ;
     private ArrayList<Student> students ;
+    private ArrayList<Subject> subjects ;
+
 
 
     private Course(Builder builder) {
@@ -27,7 +29,8 @@ public class Course {
         this.name = builder.name;
         this.credits = builder.credits;
         this.maxStudents = builder.maxStudents;
-        this.students = new ArrayList<>(maxStudents);
+        this.subjects = new ArrayList<>();
+        this.students = new ArrayList<>();
     }
 
     public int getId() {
@@ -44,6 +47,9 @@ public class Course {
     }
     public ArrayList<Student> getStudents() {
         return students;
+    }
+    public ArrayList<Subject> getSubjects() {
+        return subjects;
     }
 
     //way to add individual students to the list of students
@@ -67,6 +73,11 @@ public class Course {
     public int getAvailableSpace() {
         return maxStudents - students.size();
     }
+    //add subjects to the course
+    public void addSubject(Subject subject) {
+        subjects.add(subject);
+    }
+
 
     @Override
     public String toString() {
@@ -76,6 +87,7 @@ public class Course {
                 ", credits=" + credits +
                 ", maxStudents=" + maxStudents +
                 ", students=" + students +
+                ", subjects=" + subjects +
                 '}';
     }
 
@@ -85,6 +97,7 @@ public class Course {
         private int credits;
         private int maxStudents;
         private ArrayList<Student> students;
+        private ArrayList<Subject> subjects;
 
         public Builder setId(int id) {
             if (id < 0) {
@@ -116,6 +129,20 @@ public class Course {
         }
         public Builder setStudents(ArrayList<Student> students) {
             this.students = students;
+            return this;
+        }
+        public Builder setSubjects(ArrayList<Subject> subjects) {
+            this.subjects = subjects;
+            return this;
+        }
+        //copy
+        public Builder copy(Course course) {
+            this.id = course.id;
+            this.name = course.name;
+            this.credits = course.credits;
+            this.maxStudents = course.maxStudents;
+            this.students = course.students;
+            this.subjects = course.subjects;
             return this;
         }
 
