@@ -7,12 +7,12 @@ import java.util.List;
 
 // this is used for storage of data - we start with data structure like arraylist
 // this is the repository for student
-public class StudentRepository implements IStudentRepository{
+public class StudentRepository implements IStudentRepository {
 //arraylist of student
 // singleton
 
 
-    private List<Student> studentList ; //id 1 then id 2
+    private final List<Student> studentList; //id 1 then id 2
 
     private StudentRepository() {
 
@@ -24,28 +24,24 @@ public class StudentRepository implements IStudentRepository{
     private static StudentRepository studentRepository = null;
 
     public static StudentRepository getRepository() {
-        if (studentRepository == null)
-        {                        //if thee is none
+        if (studentRepository == null) {                        //if thee is none
 //            System.out.println(" this run when null");
 
             studentRepository = new StudentRepository();        //then create and assign one
-        }
-        else
-        {
-         //   System.out.println(" this runs when not null ");
+        } else {
+            //   System.out.println(" this runs when not null ");
             return studentRepository;
         }
 
         return studentRepository;
-                                     // return that one instance
+        // return that one instance
     }
 
     // CRUD - Create , Read , Update , Delete
 
 
-    public Student create(Student student){
-        if (student !=null)
-        {
+    public Student create(Student student) {
+        if (student != null) {
             studentList.add(student);
         }
         return student;
@@ -56,25 +52,22 @@ public class StudentRepository implements IStudentRepository{
     @Override
     public Student read(String id) {
         //for loop to iterate through the list
-        for (int i = 0; i < studentList.size(); i++)
-        {
-            if (studentList.get(i).getId().equalsIgnoreCase(id))
-            {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId().equalsIgnoreCase(id)) {
                 return studentList.get(i);
             }
         }
         return null;
     }
 
-    public Student update(Student student){
-        if ( student == null || student.getId()==null )// if the student is not acceptable, return null
+    public Student update(Student student) {
+        if (student == null || student.getId() == null)// if the student is not acceptable, return null
         {
-           return null;
+            return null;
         }
 
         for (int i = 0; i < studentList.size(); i++)
-            if(studentList.get(i).getId().equalsIgnoreCase(student.getId() ))
-            {
+            if (studentList.get(i).getId().equalsIgnoreCase(student.getId())) {
                 studentList.set(i, student);
                 return student;
 
@@ -83,11 +76,9 @@ public class StudentRepository implements IStudentRepository{
         return null;
     }
 
-    public boolean delete(String id){
-        for (int i = 0; i < studentList.size(); i++)
-        {
-            if (studentList.get(i).getId().equalsIgnoreCase(id))
-            {
+    public boolean delete(String id) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId().equalsIgnoreCase(id)) {
                 studentList.remove(i);
                 return true;
             }
@@ -95,10 +86,9 @@ public class StudentRepository implements IStudentRepository{
         return false;
     }
 
-    public  List<Student> getAll() {
+    public List<Student> getAll() {
         return studentList;
     }
-
 
 
 }

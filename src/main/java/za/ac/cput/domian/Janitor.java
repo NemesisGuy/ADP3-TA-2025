@@ -1,8 +1,9 @@
 package za.ac.cput.domian;
+
 //
 // pojo
 public class Janitor extends Employee {
-    private String shift;
+    private final String shift;
 
 
     private Janitor(Builder builder) {
@@ -33,10 +34,12 @@ public class Janitor extends Employee {
             this.id = id;
             return this;
         }
+
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
+
         public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
@@ -52,7 +55,7 @@ public class Janitor extends Employee {
             return this;
         }
 
-        public Builder copy(Janitor janitor){
+        public Builder copy(Janitor janitor) {
             this.id = janitor.id;
             this.firstName = janitor.firstName;
             this.lastName = janitor.lastName;

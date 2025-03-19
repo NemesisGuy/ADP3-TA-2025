@@ -1,10 +1,10 @@
 package za.ac.cput.domian;
 // CONVERTING TO BUILDER PATTERN
-    //Private constructor
-    //inner public static Builder class
-       // private attributes
-         // public setters
-            // public build method -- call private constructor in return
+//Private constructor
+//inner public static Builder class
+// private attributes
+// public setters
+// public build method -- call private constructor in return
 
 import za.ac.cput.util.Helper;
 
@@ -12,15 +12,15 @@ import za.ac.cput.util.Helper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lecturer extends Employee{
+public class Lecturer extends Employee {
 
-    private String email;
-    private String qualification;
+    private final String email;
+    private final String qualification;
 
-    private List<Subject> subjects;
+    private final List<Subject> subjects;
 
     private Lecturer(Builder builder) {
-    super(builder);
+        super(builder);
         this.email = builder.email;
         this.qualification = builder.qualification;
         this.subjects = new ArrayList<>();
@@ -30,15 +30,19 @@ public class Lecturer extends Employee{
 
     // then we move the setters to the inner builder class
 
-    public String getEmail() {return email;}
+    public String getEmail() {
+        return email;
+    }
+
     public String getQualification() {
         return qualification;
     }
-    public  List<Subject> getSubjects() {
+
+    public List<Subject> getSubjects() {
         return subjects;
     }
 
-    public  void addSubject(Subject subject) {
+    public void addSubject(Subject subject) {
         subjects.add(subject);
     }
 
@@ -53,35 +57,33 @@ public class Lecturer extends Employee{
                 '}';
     }
 
-    public static class Builder extends Employee.Builder<Builder>{
-//        private String id;
-//        private String firstName;
-//        private String lastName;
-
+    public static class Builder extends Employee.Builder<Builder> {
         private String email;
         private String qualification;
-        private  List<Subject> subjects;
+        private List<Subject> subjects;
 
-        public Builder setId(String id){
-            if (Helper.Validate.isString(id))
-            {
+        public Builder setId(String id) {
+            if (Helper.Validate.isString(id)) {
                 this.id = id;
             }
             return this;
         }
-        public Builder setFirstName(String firstName){
-            if (Helper.Validate.isString(firstName)){
+
+        public Builder setFirstName(String firstName) {
+            if (Helper.Validate.isString(firstName)) {
                 this.firstName = firstName;
             }
             return this;
         }
-        public Builder setLastName(String lastName){
-            if (Helper.Validate.isString(lastName)){
+
+        public Builder setLastName(String lastName) {
+            if (Helper.Validate.isString(lastName)) {
                 this.lastName = lastName;
             }
             return this;
         }
-        public Builder setSubjects(List<Subject> subjects){
+
+        public Builder setSubjects(List<Subject> subjects) {
             this.subjects = subjects;
             return this;
         }
@@ -91,22 +93,24 @@ public class Lecturer extends Employee{
             return this;
         }
 
-        public Builder setEmail(String email){
-            if (Helper.Validate.email(email))
-            {
+        public Builder setEmail(String email) {
+            if (Helper.Validate.email(email)) {
                 this.email = email;
             }
             return this;
         }
-        public Builder setQualification(String qualification){
+
+        public Builder setQualification(String qualification) {
             this.qualification = qualification;
             return this;
         }
-        public Lecturer build(){
+
+        public Lecturer build() {
 
             return new Lecturer(this);
         }
-        public Builder copy(Lecturer lecturer){
+
+        public Builder copy(Lecturer lecturer) {
             this.id = lecturer.id;
             this.firstName = lecturer.firstName;
             this.lastName = lecturer.lastName;

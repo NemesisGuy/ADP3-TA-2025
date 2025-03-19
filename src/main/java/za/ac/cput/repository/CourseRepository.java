@@ -5,11 +5,11 @@ import za.ac.cput.domian.Course;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CourseRepository implements ICourseRepository{
+public class CourseRepository implements ICourseRepository {
     // This is a repository class for the Course entity
     // This class will be responsible for all CRUD operations for the Course entity
     //list of courses
-    private List<Course> courseList = new LinkedList<>();
+    private final List<Course> courseList = new LinkedList<>();
     //singleton
     private static CourseRepository courseRepository = null;
 
@@ -33,7 +33,6 @@ public class CourseRepository implements ICourseRepository{
     }
 
 
-
     //read
     @Override
     public Course read(Integer id) {
@@ -44,6 +43,7 @@ public class CourseRepository implements ICourseRepository{
         }
         return null;
     }
+
     //update
     public Course update(Course course) {
         if (course != null) {
@@ -56,7 +56,6 @@ public class CourseRepository implements ICourseRepository{
         }
         return null;
     }
-
 
 
     //delete

@@ -8,25 +8,24 @@ import java.util.List;
 public class GroundskeeperRepository implements IGroundskeeperRepository {
 
     private static GroundskeeperRepository repository = null;
-    private List<Groundskeeper> groundskeepers;
+    private final List<Groundskeeper> groundskeepers;
 
-    private  GroundskeeperRepository() {
+    private GroundskeeperRepository() {
         this.groundskeepers = new ArrayList<Groundskeeper>();
     }
 
-    public static GroundskeeperRepository getRepository(){
-        if(repository == null) repository = new GroundskeeperRepository();
+    public static GroundskeeperRepository getRepository() {
+        if (repository == null) repository = new GroundskeeperRepository();
         return repository;
     }
 
     @Override
     public Groundskeeper create(Groundskeeper groundsKeeper) {
         // Create method
-        if(groundskeepers.contains(groundsKeeper)){
+        if (groundskeepers.contains(groundsKeeper)) {
             System.out.println("Groundskeeper already exists");
             return null;
-        }
-        else {
+        } else {
             groundskeepers.add(groundsKeeper);
         }
 

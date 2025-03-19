@@ -4,6 +4,6 @@ import za.ac.cput.domian.Subject;
 
 import java.util.List;
 
-public interface ISubjectRepository extends  IRepository <Subject, Integer> {
+public interface ISubjectRepository extends IRepository<Subject, Integer> {
     List<Subject> getAll();
 }

@@ -1,7 +1,7 @@
 package za.ac.cput.domian;
 
 public abstract class Employee {
-    String id ;
+    String id;
     String firstName;
     String lastName;
 
@@ -33,23 +33,27 @@ public abstract class Employee {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
-    public abstract static class Builder<T extends Builder<T>>{
-        String id ;
+
+    public abstract static class Builder<T extends Builder<T>> {
+        String id;
         String firstName;
         String lastName;
 
-        public Builder setId(String id){
+        public Builder setId(String id) {
             this.id = id;
             return self();
         }
-        public Builder setFirstName(String firstName){
+
+        public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return self();
         }
-        public Builder setLastName(String lastName){
+
+        public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return self();
         }
+
         protected abstract T self();
 
         public abstract Employee build();
@@ -57,10 +61,10 @@ public abstract class Employee {
 
 
     // hc 5
-   // dip 6
-   // adv dip  7 - betch degee
-   // PG   -  8
-   // Mtch - 9
-   // PHD - 10
+    // dip 6
+    // adv dip  7 - betch degee
+    // PG   -  8
+    // Mtch - 9
+    // PHD - 10
 
 }

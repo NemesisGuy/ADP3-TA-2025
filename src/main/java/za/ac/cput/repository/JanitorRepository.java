@@ -9,36 +9,36 @@ import java.util.stream.Collectors;
 
 public class JanitorRepository implements IJanitorRepository {
 
-    private Map<String, Janitor> cleanerList ;
+    private final Map<String, Janitor> cleanerList;
 
     private JanitorRepository() {
         this.cleanerList = new HashMap<>();
     }
+
     private static JanitorRepository repository = null;
 
     //singleton
-    public static JanitorRepository getRepository(){
-        if(repository == null) repository = new JanitorRepository();
+    public static JanitorRepository getRepository() {
+        if (repository == null) repository = new JanitorRepository();
         return repository;
     }
 
     //CRUD methods
 
 
-
     @Override
     public Janitor create(Janitor entity) {
-        if(cleanerList.containsKey(entity.getId())){
+        if (cleanerList.containsKey(entity.getId())) {
             System.out.println("Cleaner already exists");
             return null;
         }
-            cleanerList.put(entity.getId(),entity);
+        cleanerList.put(entity.getId(), entity);
         return cleanerList.get(entity.getId());
     }
 
     @Override
     public Janitor read(String id) {
-        if(cleanerList.containsKey(id)){
+        if (cleanerList.containsKey(id)) {
             return cleanerList.get(id);
         }
 
@@ -48,8 +48,8 @@ public class JanitorRepository implements IJanitorRepository {
 
     @Override
     public Janitor update(Janitor entity) {
-        if(cleanerList.containsKey(entity.getId())){
-            cleanerList.replace(entity.getId(),entity);
+        if (cleanerList.containsKey(entity.getId())) {
+            cleanerList.replace(entity.getId(), entity);
             return cleanerList.get(entity.getId());
         }
         return null;
@@ -57,12 +57,13 @@ public class JanitorRepository implements IJanitorRepository {
 
     @Override
     public boolean delete(String id) {
-        if(cleanerList.containsKey(id)){
+        if (cleanerList.containsKey(id)) {
             cleanerList.remove(id);
             return true;
         }
         return false;
     }
+
     @Override
     public List<Janitor> getAll() {
         return cleanerList.values().stream().collect(Collectors.toList());

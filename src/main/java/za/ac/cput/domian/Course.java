@@ -15,13 +15,12 @@ public class Course {
     //null check for course
     //email valid (changes to the student call to add attribute called email )
     //DOB local date time for student
-    private int id;
-    private String name;
-    private int credits;
-    private int maxStudents ;
-    private ArrayList<Student> students ;
-    private ArrayList<Subject> subjects ;
-
+    private final int id;
+    private final String name;
+    private final int credits;
+    private final int maxStudents;
+    private final ArrayList<Student> students;
+    private final ArrayList<Subject> subjects;
 
 
     private Course(Builder builder) {
@@ -36,18 +35,23 @@ public class Course {
     public int getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
+
     public int getCredits() {
         return credits;
     }
+
     public int getMaxStudents() {
         return maxStudents;
     }
+
     public ArrayList<Student> getStudents() {
         return students;
     }
+
     public ArrayList<Subject> getSubjects() {
         return subjects;
     }
@@ -62,17 +66,21 @@ public class Course {
         }
 
     }
+
     //Lets check if there is space for more students
     public boolean isThereSpace() {
         return students.size() < maxStudents;
 
     }
+
     public int getStudentCount() {
         return students.size();
     }
+
     public int getAvailableSpace() {
         return maxStudents - students.size();
     }
+
     //add subjects to the course
     public void addSubject(Subject subject) {
         subjects.add(subject);
@@ -123,18 +131,22 @@ public class Course {
             this.credits = credits;
             return this;
         }
+
         public Builder setMaxStudents(int maxStudents) {
             this.maxStudents = maxStudents;
             return this;
         }
+
         public Builder setStudents(ArrayList<Student> students) {
             this.students = students;
             return this;
         }
+
         public Builder setSubjects(ArrayList<Subject> subjects) {
             this.subjects = subjects;
             return this;
         }
+
         //copy
         public Builder copy(Course course) {
             this.id = course.id;

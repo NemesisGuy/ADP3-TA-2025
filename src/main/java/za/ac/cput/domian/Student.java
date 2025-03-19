@@ -2,29 +2,29 @@ package za.ac.cput.domian;
 
 import za.ac.cput.util.Helper;
 
-import java.util.List;
+import java.time.LocalDate;
 
 public class Student {
-    private String id;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private Course course;
-    private List <Subject> subjects;
+    private final String id;
+    private final String firstName;
+    private final String lastName;
+    private final LocalDate dateOfBirth;
+    private final Course course;
 
 
     public String getFirstName() {
 
         return firstName;
     }
+
     public String getLastName() {
 
         return lastName;
     }
 
-    public int getAge() {
+    public LocalDate getDateOfBirth() {
 
-        return age;
+        return dateOfBirth;
     }
 
     public String getId() {
@@ -36,10 +36,6 @@ public class Student {
         return course;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
 
     @Override
     public String toString() {
@@ -47,9 +43,8 @@ public class Student {
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", course=" + course +
-                ", subjects=" + subjects +
+                ", dateOfBirth=" + dateOfBirth +
+                ", course=" + course.getName() +
                 '}';
     }
 
@@ -57,58 +52,53 @@ public class Student {
         this.id = builder.id;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
-        this.age = builder.age;
+        this.dateOfBirth = builder.dateOfBirth;
         this.course = builder.course;
-        this.subjects = builder.subjects;
+
     }
 
 
-
-    public static class Builder{
+    public static class Builder {
         private String id;
         private String firstName;
         private String lastName;
-        private int age;
+        private LocalDate dateOfBirth;
         private Course course;
-        private List <Subject> subjects;
 
 
         public Builder setId(String id) {
-            if (Helper.Validate.isString(id))
-            {
+            if (Helper.Validate.isString(id)) {
                 this.id = id;
             }
             return this;
         }
+
         public Builder setFirstName(String firstName) {
-            if(Helper.Validate.isString(firstName))
-            {
+            if (Helper.Validate.isString(firstName)) {
                 this.firstName = firstName;
             }
             return this;
         }
+
         public Builder setLastName(String lastName) {
-            if(Helper.Validate.isString(lastName))
-            {
+            if (Helper.Validate.isString(lastName)) {
                 this.lastName = lastName;
             }
             return this;
         }
-        public  Builder setAge(int age) {
-            if (Helper.Validate.age(age))
-            {
-                this.age = age;
+
+        public Builder setDateOfBirth(LocalDate dateOfBirth) {
+            if (Helper.Validate.age(dateOfBirth)) {
+                this.dateOfBirth = dateOfBirth;
             }
             return this;
         }
 
-        public void setCourse(Course course) {
+        public Builder setCourse(Course course) {
             this.course = course;
-        }
-        public  Builder setSubjects(List <Subject> subjects) {
-            this.subjects = subjects;
             return this;
         }
+
         public Student build() {
 
             return new Student(this);

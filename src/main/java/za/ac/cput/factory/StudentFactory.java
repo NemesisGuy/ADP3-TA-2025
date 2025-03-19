@@ -1,17 +1,21 @@
 package za.ac.cput.factory;
 
+import za.ac.cput.domian.Course;
 import za.ac.cput.domian.Student;
+
+import java.time.LocalDate;
 
 public class StudentFactory {
 
-    public static Student create(String id , String firstName, String lastName, int age) {
+    public static Student create(String id, String firstName, String lastName, LocalDate dateOfBirth, Course course) {
 
         // validation here
-       return new Student.Builder()
+        return new Student.Builder()
                 .setId(id)
-                .setAge(age)
+                .setDateOfBirth(dateOfBirth)
                 .setFirstName(firstName)
                 .setLastName(lastName)
+                .setCourse(course)
                 .build();
     }
 

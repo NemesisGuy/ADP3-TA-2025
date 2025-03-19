@@ -5,17 +5,17 @@ import za.ac.cput.domian.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectRepository implements ISubjectRepository    {
+public class SubjectRepository implements ISubjectRepository {
     private static SubjectRepository repository = null;
-    private List<Subject> subjects;
+    private final List<Subject> subjects;
 
-    public static SubjectRepository getRepository(){
-        if(repository == null) repository = new SubjectRepository();
+    public static SubjectRepository getRepository() {
+        if (repository == null) repository = new SubjectRepository();
         return repository;
     }
 
     //constructor
-    private SubjectRepository(){
+    private SubjectRepository() {
         this.subjects = new ArrayList<>();
     }
 
@@ -35,7 +35,7 @@ public class SubjectRepository implements ISubjectRepository    {
                 return subject;
             }
         }
-        return  null;
+        return null;
     }
 
     @Override
