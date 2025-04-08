@@ -27,9 +27,10 @@ public class Main {
         //We want to create a students via the factory
         Student student = StudentFactory.create("1", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course);
         Student student2 = StudentFactory.create("2", "Mike", "Jones", Helper.Dates.generateDateOfBirthForAdult(), course2);
+        System.out.println("student name : "+ student.getFirstName() + "student age: " +  student.getAge());
 
         //We want to add the students to the repository
-        studentRepository.create(student); //ome element in the arraylist
+        studentRepository.create(student); //one element in the arraylist
         studentRepository.create(student2);//two elements in the arraylist
 
         System.out.println(studentRepository.read("1"));
@@ -78,6 +79,11 @@ public class Main {
         System.out.println(courseRepository.getAll());
         System.out.println(courseRepository.delete(1));
         System.out.println(courseRepository.getAll());
+
+        Student student3 = StudentFactory.create("3", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course);
+        Student student4 = StudentFactory.createNoName("4", Helper.Dates.generateDateOfBirthForAdult(), course2);
+        System.out.println(student4.toString());
+
 
 
     }

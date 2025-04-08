@@ -18,5 +18,15 @@ public class StudentFactory {
                 .setCourse(course)
                 .build();
     }
+    public static Student createNoName(String id, LocalDate dateOfBirth, Course course) {
+
+        // validation here
+        return new Student.Builder()
+                .setId(id)
+                .setDateOfBirth(dateOfBirth)
+                .setCourse(course)
+                .build();
+    }
+
 
 }

@@ -2,7 +2,7 @@ package za.ac.cput.repository;
 /*
     StudentRepositoryTest.java
     Description : This is intended to test the StudentRepository class
-    Author: Peter Buckingham (217149073)
+    Author: Peter Buckingham (220165289)
     Date: 14 March 2025
 */
 
@@ -52,6 +52,7 @@ class StudentRepositoryTest {
 
     @Test
     void create() {
+
         int sizeBefore = repository.getAll().size();                     //look at this
         Student newStudent = new Student.Builder()
                 .setId("3")
@@ -115,7 +116,7 @@ class StudentRepositoryTest {
         assertTrue(deleted);
         assertEquals(1, repository.getAll().size());
 
-        boolean notDeleted = repository.delete("99");
+        boolean notDeleted = repository.delete("1");
         assertFalse(notDeleted);
     }
 

@@ -26,11 +26,15 @@ public class Student {
 
         return dateOfBirth;
     }
+    public int getAge() {
+        return Helper.Dates.getAge(dateOfBirth);
+    }
 
     public String getId() {
 
         return id;
     }
+
 
     public Course getCourse() {
         return course;
