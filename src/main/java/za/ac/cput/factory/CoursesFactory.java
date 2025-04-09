@@ -1,8 +1,8 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domian.Course;
-import za.ac.cput.domian.Student;
-import za.ac.cput.domian.Subject;
+import za.ac.cput.domain.Course;
+import za.ac.cput.domain.Student;
+import za.ac.cput.domain.Subject;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Groundskeeper;
+import za.ac.cput.domain.Groundskeeper;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Subject;
+import za.ac.cput.domain.Subject;
 
 import java.util.ArrayList;
 import java.util.List;

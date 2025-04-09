@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Course;
+import za.ac.cput.domain.Course;
 
 import java.util.LinkedList;
 import java.util.List;

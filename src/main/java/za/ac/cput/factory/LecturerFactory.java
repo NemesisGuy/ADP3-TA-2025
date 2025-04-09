@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domian.Lecturer;
-import za.ac.cput.domian.Subject;
+import za.ac.cput.domain.Lecturer;
+import za.ac.cput.domain.Subject;
 
 import java.util.List;
 

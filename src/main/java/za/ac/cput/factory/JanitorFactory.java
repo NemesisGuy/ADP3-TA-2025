@@ -1,6 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domian.Janitor;
+import za.ac.cput.domain.Janitor;
 
 public class JanitorFactory {
     public static Janitor create(String id, String firstName, String lastName, String shift) {

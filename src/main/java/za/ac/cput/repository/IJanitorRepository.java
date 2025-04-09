@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Janitor;
+import za.ac.cput.domain.Janitor;
 
 import java.util.List;
 

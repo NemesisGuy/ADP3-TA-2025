@@ -1,4 +1,4 @@
-package za.ac.cput.domian;
+package za.ac.cput.domain;
 
 //
 // pojo

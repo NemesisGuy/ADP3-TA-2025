@@ -1,18 +1,17 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domian.Student;
-
+import za.ac.cput.domain.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-// this is used for storage of data - we start with data structure like arraylist
+// this is used for storage of data - we start with data structure like arraylist for third year students, Database
 // this is the repository for student
 public class StudentRepository implements IStudentRepository {
 //arraylist of student
-// singleton
+//singleton
 
 
-    private final List<Student> studentList; //id 1 then id 2
+    private final List<Student> studentList ; //id 1 then id 2
 
     private StudentRepository() {
 

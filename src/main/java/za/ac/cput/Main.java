@@ -1,6 +1,6 @@
 package za.ac.cput;
 
-import za.ac.cput.domian.*;
+import za.ac.cput.domain.*;
 import za.ac.cput.factory.*;
 import za.ac.cput.repository.CourseRepository;
 import za.ac.cput.repository.JanitorRepository;

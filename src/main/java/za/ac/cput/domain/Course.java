@@ -1,8 +1,9 @@
-package za.ac.cput.domian;
+package za.ac.cput.domain;
 
 import java.util.ArrayList;
 
 //pojo
+
 public class Course {
     //id                               // done
     //name                             // done
