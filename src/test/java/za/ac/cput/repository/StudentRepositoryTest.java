@@ -10,7 +10,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Student;
+import za.ac.cput.util.Helper;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,12 +30,16 @@ class StudentRepositoryTest {
                 .setId("1")
                 .setFirstName("John")
                 .setLastName("Doe")
+                .setDateOfBirth(LocalDate.of(1990, 1, 1))
+                .setActive(true)
                 .build();
 
         student2 = new Student.Builder()
                 .setId("2")
                 .setFirstName("Jane")
                 .setLastName("Smith")
+                .setDateOfBirth(LocalDate.of(1992, 2, 2))
+                .setActive(true)
                 .build();
 
         repository.create(student1);
@@ -58,6 +64,7 @@ class StudentRepositoryTest {
                 .setId("3")
                 .setFirstName("Alice")
                 .setLastName("Johnson")
+                .setActive(true)
                 .build();
 
         Student createdStudent = repository.create(newStudent);
@@ -73,6 +80,8 @@ class StudentRepositoryTest {
                 .setId("3")
                 .setFirstName("Alice")
                 .setLastName("Johnson")
+                .setDateOfBirth(Helper.Dates.generateDateOfBirthForAdult())
+                .setActive(true)
                 .build();
 
         Student createdStudent = repository.create(newStudent);

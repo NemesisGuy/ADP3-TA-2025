@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class StudentFactory {
 
-    public static Student create(String id, String firstName, String lastName, LocalDate dateOfBirth, Course course) {
+    public static Student create(String id, String firstName, String lastName, LocalDate dateOfBirth, Course course, boolean status) {
         // validation here
 
         return new Student.Builder()
@@ -16,9 +16,18 @@ public class StudentFactory {
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setCourse(course)
+                .setActive(status)
                 .build();
 
     }
+
+    public static Student copy(Student student) {
+        // validation here
+        return new Student.Builder()
+                .copy(student)
+                .build();
+    }
+
     public static Student createNoName(String id, LocalDate dateOfBirth, Course course) {
 
         // validation here

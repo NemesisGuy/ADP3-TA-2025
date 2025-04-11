@@ -16,17 +16,17 @@ public class Main {
         System.out.println("\r======================= Course Stuff ==============================");
 
         CourseRepository courseRepository = CourseRepository.getRepository();
-        Course course = CoursesFactory.create(1, "Diploma - Application Development", 100, 30, new ArrayList<>(), new ArrayList<>());
-        Course course2 = CoursesFactory.create(2, "Diploma - Networking", 100, 30, new ArrayList<>(), new ArrayList<>());
-        Course course3 = CoursesFactory.create(3, "Diploma - Multimedia", 100, 30, new ArrayList<>(), new ArrayList<>());
+        Course course = CourseFactory.create(1, "Diploma - Application Development", 100, 30, new ArrayList<>(), new ArrayList<>());
+        Course course2 = CourseFactory.create(2, "Diploma - Networking", 100, 30, new ArrayList<>(), new ArrayList<>());
+        Course course3 = CourseFactory.create(3, "Diploma - Multimedia", 100, 30, new ArrayList<>(), new ArrayList<>());
         //we want  the student repo to be created
 
         //StudentRepository studentRepository = new StudentRepository();
         StudentRepository studentRepository = StudentRepository.getRepository();
 
         //We want to create a students via the factory
-        Student student = StudentFactory.create("1", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course);
-        Student student2 = StudentFactory.create("2", "Mike", "Jones", Helper.Dates.generateDateOfBirthForAdult(), course2);
+        Student student = StudentFactory.create("1", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course, true);
+        Student student2 = StudentFactory.create("2", "Mike", "Jones", Helper.Dates.generateDateOfBirthForAdult(), course2, true);
         System.out.println("student name : "+ student.getFirstName() + "student age: " +  student.getAge());
 
         //We want to add the students to the repository
@@ -80,7 +80,7 @@ public class Main {
         System.out.println(courseRepository.delete(1));
         System.out.println(courseRepository.getAll());
 
-        Student student3 = StudentFactory.create("3", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course);
+        Student student3 = StudentFactory.create("3", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course, true);
         Student student4 = StudentFactory.createNoName("4", Helper.Dates.generateDateOfBirthForAdult(), course2);
         System.out.println(student4.toString());
 

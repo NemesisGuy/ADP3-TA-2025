@@ -1,7 +1,9 @@
 package za.ac.cput.service;
 
-public interface IStudentService {
-//
+import za.ac.cput.domain.Student;
 
-    //point that you provide the implementation pattern , rules around the implementation
+public interface IStudentService extends IService <Student, String>{
+
+    Iterable<Student> getAll();
+
 }

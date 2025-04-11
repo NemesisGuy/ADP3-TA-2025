@@ -6,7 +6,7 @@ import za.ac.cput.domain.Subject;
 
 import java.util.ArrayList;
 
-public class CoursesFactory {
+public class CourseFactory {
 
     public static Course create(int id, String name, int credits, int maxStudents, ArrayList<Student> students, ArrayList<Subject> subjects) {
         return new Course.Builder()
