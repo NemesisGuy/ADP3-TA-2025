@@ -70,6 +70,13 @@ public class GroundskeeperRepository implements IGroundskeeperRepository {
     }
 
     @Override
+    public boolean deactivate(String s) {
+        /// TODO implement
+
+        return false;
+    }
+
+    @Override
     public List<Groundskeeper> getAll() {
         return List.of();
     }

@@ -64,4 +64,11 @@ public class SubjectRepository implements ISubjectRepository {
         }
         return false;
     }
+
+    @Override
+    public boolean deactivate(Integer integer) {
+        // TODO implement
+
+        return false;
+    }
 }

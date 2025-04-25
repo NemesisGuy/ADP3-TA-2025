@@ -65,6 +65,13 @@ public class JanitorRepository implements IJanitorRepository {
     }
 
     @Override
+    public boolean deactivate(String s) {
+        // TODO implement
+
+        return false;
+    }
+
+    @Override
     public List<Janitor> getAll() {
         return cleanerList.values().stream().collect(Collectors.toList());
     }

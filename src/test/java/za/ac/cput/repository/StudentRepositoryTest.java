@@ -9,10 +9,13 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.Course;
 import za.ac.cput.domain.Student;
+import za.ac.cput.factory.CourseFactory;
 import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,6 +24,7 @@ class StudentRepositoryTest {
 
     private StudentRepository repository;
     private Student student1, student2;
+    private final Course course = CourseFactory.create(301, "App Development 3", 100, 3, new ArrayList<>(), new ArrayList<>());
 
     @BeforeEach
     void setUp() {
@@ -31,6 +35,7 @@ class StudentRepositoryTest {
                 .setFirstName("John")
                 .setLastName("Doe")
                 .setDateOfBirth(LocalDate.of(1990, 1, 1))
+                .setCourse(course)
                 .setActive(true)
                 .build();
 
@@ -39,6 +44,8 @@ class StudentRepositoryTest {
                 .setFirstName("Jane")
                 .setLastName("Smith")
                 .setDateOfBirth(LocalDate.of(1992, 2, 2))
+                .setCourse(course)
+
                 .setActive(true)
                 .build();
 
@@ -64,16 +71,18 @@ class StudentRepositoryTest {
                 .setId("3")
                 .setFirstName("Alice")
                 .setLastName("Johnson")
+                .setCourse(course)
                 .setActive(true)
                 .build();
 
         Student createdStudent = repository.create(newStudent);
         assertNotNull(createdStudent);
         assertEquals("3", createdStudent.getId());
-       int sizeAfter = repository.getAll().size();                      //look at this
-         assertEquals(sizeBefore + 1, sizeAfter);               //look at this
-         assertTrue(sizeAfter > sizeBefore);                        //look at this
+        int sizeAfter = repository.getAll().size();                      //look at this
+        assertEquals(sizeBefore + 1, sizeAfter);               //look at this
+        assertTrue(sizeAfter > sizeBefore);                        //look at this
     }
+
     @Test
     void createFail() {
         Student newStudent = new Student.Builder()
@@ -81,6 +90,7 @@ class StudentRepositoryTest {
                 .setFirstName("Alice")
                 .setLastName("Johnson")
                 .setDateOfBirth(Helper.Dates.generateDateOfBirthForAdult())
+                .setCourse(course)
                 .setActive(true)
                 .build();
 
@@ -89,7 +99,7 @@ class StudentRepositoryTest {
         assertEquals("3", createdStudent.getId());
         assertEquals(3, repository.getAll().size());
         repository.delete("3");
-    //    assertEquals(20000000, repository.getAll().size());/// this is the issue, this is an example for the students to see
+        //    assertEquals(20000000, repository.getAll().size());/// this is the issue, this is an example for the students to see
         assertNotEquals(4, repository.getAll().size()); // this is will pass
     }
 
@@ -121,16 +131,22 @@ class StudentRepositoryTest {
 
     @Test
     void delete() {
-        boolean deleted = repository.delete("2");
-        assertTrue(deleted);
-        assertEquals(1, repository.getAll().size());
 
-        boolean notDeleted = repository.delete("1");
-        assertFalse(notDeleted);
+
+        boolean deleted = repository.deactivate("2");
+        assertTrue(deleted);
+        assertEquals(1, repository.getActiveStudents().size());
+        assertFalse(repository.read("2").isActive());
+        //println(repository.getActiveStudents());
+        for (Student student : repository.getActiveStudents()) {
+            System.out.println(student);
+        }
+        //System.out.println();
     }
 
     @Test
     void getAll() {
+        assertTrue(repository.getAll().size() > 0 && repository.getAll() != null);
         List<Student> students = repository.getAll();
         assertEquals(2, students.size());
 

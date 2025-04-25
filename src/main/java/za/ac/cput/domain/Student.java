@@ -5,14 +5,15 @@ import za.ac.cput.util.Helper;
 import java.time.LocalDate;
 
 public class Student {
+    public String gender;
     private final String id;
     private final String firstName;
     private final String lastName;
     private final LocalDate dateOfBirth;
     private final Course course;
-    private boolean isActive; //now u could have a status of active or inactive or expired or expelled. /// store in a Enum
+    private final boolean isActive; //now u could have a status of active or inactive or expired or expelled. /// store in a Enum
 
-
+ public boolean isMammal(){return true;};
     public String getFirstName() {
 
         return firstName;
@@ -27,6 +28,7 @@ public class Student {
 
         return dateOfBirth;
     }
+
     public int getAge() {
         return Helper.Dates.getAge(dateOfBirth);
     }
@@ -35,12 +37,11 @@ public class Student {
 
         return id;
     }
+
     public boolean isActive() {
         return isActive;
     }
- /*   public void setActive(boolean active) {
-        isActive = active;
-    }*/
+
 
 
     public Course getCourse() {
@@ -56,12 +57,18 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", course=" + course.getName() +
+                ", isActive=" + isActive +
                 '}';
     }
 
 
     private Student(Builder builder) {
+
+
         this.id = builder.id;
+
+
+
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.dateOfBirth = builder.dateOfBirth;
@@ -112,11 +119,14 @@ public class Student {
             this.course = course;
             return this;
         }
+
         public Builder setActive(boolean active) {
             isActive = active;
             return this;
         }
-        //copy
+
+        // Copy, used to create a new object with the same values as an existing one.
+        // This is useful for creating a new object based on an existing one, while still allowing for modifications.
         public Builder copy(Student student) {
             this.id = student.id;
             this.firstName = student.firstName;
@@ -127,7 +137,11 @@ public class Student {
             return this;
         }
 
+        // This method is used to create a new object of the same type as the current object.
+        // We call the private constructor to create a new object. (Builder magic)
         public Student build() {
+
+            //validate the object here
 
             return new Student(this);
         }

@@ -13,11 +13,11 @@ import java.lang.StringBuilder; // Explicit import for clarity
 /**
  * A utility to combine multiple Java source files from a directory tree
  * into a single text file, with comments indicating the original file path.
- *
+ * <p>
  * !! NOTE: This version uses hardcoded paths. Edit the variables below before running. !!
  */
 public class CodeCombiner {
-///"C:\Users\Reign\IdeaProjects\ADP3-TA-2025\src" "C:\Users\Reign\IdeaProjects\ADP3-TA-2025\src\combined_code.java"
+    /// "C:\Users\Reign\IdeaProjects\ADP3-TA-2025\src" "C:\Users\Reign\IdeaProjects\ADP3-TA-2025\src\combined_code.java"
     public static void main(String[] args) {
 
         // --- !!! EDIT THESE TWO LINES BEFORE RUNNING !!! ---
@@ -81,7 +81,7 @@ public class CodeCombiner {
      * Finds all .java files in the source directory and its subdirectories,
      * reads their content, and writes it into the output file with delimiters.
      *
-     * @param sourceDir The root directory containing the .java source files.
+     * @param sourceDir  The root directory containing the .java source files.
      * @param outputFile The file to write the combined content to.
      * @throws IOException If an I/O error occurs during file walking, reading, or writing.
      */

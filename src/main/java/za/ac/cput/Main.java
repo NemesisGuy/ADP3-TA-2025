@@ -27,7 +27,7 @@ public class Main {
         //We want to create a students via the factory
         Student student = StudentFactory.create("1", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course, true);
         Student student2 = StudentFactory.create("2", "Mike", "Jones", Helper.Dates.generateDateOfBirthForAdult(), course2, true);
-        System.out.println("student name : "+ student.getFirstName() + "student age: " +  student.getAge());
+        System.out.println("student name : " + student.getFirstName() + "student age: " + student.getAge());
 
         //We want to add the students to the repository
         studentRepository.create(student); //one element in the arraylist
@@ -83,7 +83,6 @@ public class Main {
         Student student3 = StudentFactory.create("3", "Kamva", "krishna", Helper.Dates.generateDateOfBirthForAdult(), course, true);
         Student student4 = StudentFactory.createNoName("4", Helper.Dates.generateDateOfBirthForAdult(), course2);
         System.out.println(student4.toString());
-
 
 
     }

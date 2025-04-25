@@ -76,23 +76,25 @@ public class Helper {
         }
 
     }
+
     public static class Names {
         public static boolean isName(String name) {
             return name != null && !name.isEmpty() && !name.trim().isEmpty();
         }
+
         //generateName
         public static String generateName() {
             //generate random real name
             String[] names = {"John", "Jane", "Doe", "Smith", "Micheal", "Sara", "David", "Mary", "James", "Patricia"};
             return names[new Random().nextInt(names.length)];
         }
+
         //generateSurname
         public static String generateSurname() {
             //generate random real surname
             String[] surnames = {"Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"};
             return surnames[new Random().nextInt(surnames.length)];
         }
-
 
 
     }

@@ -9,5 +9,8 @@ public interface IRepository<T, ID> {
     T update(T entity);
 
     boolean delete(ID id);
+    //Deactivate - soft delete
+    boolean deactivate(ID id);
+
 
 }

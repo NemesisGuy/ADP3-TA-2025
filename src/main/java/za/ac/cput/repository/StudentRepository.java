@@ -11,9 +11,9 @@ import java.util.List;
 public class StudentRepository implements IStudentRepository {
 //arraylist of student
 //singleton
+//CRUD
 
-
-    private final List<Student> studentList ; //id 1 then id 2
+    private final List<Student> studentList;//id 1 then id 2
 
     private StudentRepository() {
 
@@ -21,7 +21,7 @@ public class StudentRepository implements IStudentRepository {
 
     }
 
-    //the one and only instance of the repository object
+    //The one and only instance of the repository object
     private static StudentRepository studentRepository = null;
 
     public static StudentRepository getRepository() {
@@ -56,6 +56,7 @@ public class StudentRepository implements IStudentRepository {
             if (studentList.get(i).getId().equalsIgnoreCase(id)) {
                 return studentList.get(i);
             }
+            ///turn a ID into a Student object
         }
         return null;
     }
@@ -76,49 +77,52 @@ public class StudentRepository implements IStudentRepository {
         return null;
     }
 
-  /*  public boolean delete(String id) {
+    //This was removed because we are not permanently deleting the student
+    public boolean delete(String id) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getId().equalsIgnoreCase(id)) {
                // studentList.remove(i);
              //  Student StudentToBeDisabled =  studentList.get(i);
-                studentList.get(i).setActive(false);
+             ///   studentList.get(i).setActive(false);
                 return true;
             }
         }
         return false;
-    }*/
-  @Override
-  public boolean delete(String id) {
-      Student student = read(id);
-      if (student != null) {
-          Student updated = new Student.Builder()
-                  .setId(student.getId())
-                  .setFirstName(student.getFirstName())
-                  .setLastName(student.getLastName())
-                  .setDateOfBirth(student.getDateOfBirth())
-                  .setCourse(student.getCourse())
-                  .setActive(false) // Soft-delete!
-                  .build();
+    }
+    // This is the delete method, it is used to soft-delete the student for data integrity
 
-          update(updated);
-          return true;
-      }
-      return false;
-  }
-  //used to restore if the student is not active
-  public boolean restore(String id) {
-      Student student = read(id);
-      if (student != null && !student.isActive()) {
-          Student restored = new Student.Builder()
-                  .copy(student)
-                  .setActive(true)
-                  .build();
-          update(restored);
-          return true;
+  //  @Override
+    public boolean deactivate(String id) {
+        Student student = read(id);
+        if (student != null) {
+            Student updated = new Student.Builder()
+                    .setId(student.getId())
+                    .setFirstName(student.getFirstName())
+                    .setLastName(student.getLastName())
+                    .setDateOfBirth(student.getDateOfBirth())
+                    .setCourse(student.getCourse())
+                    .setActive(false) // Soft-delete!
+                    .build();
+
+            update(updated);
+            return true;
         }
         return false;
     }
 
+    //Used to restore if the student is not active
+    public boolean restore(String id) {
+        Student student = read(id);
+        if (student != null && !student.isActive()) {
+            Student restored = new Student.Builder()
+                    .copy(student)
+                    .setActive(true)
+                    .build();
+            update(restored);
+            return true;
+        }
+        return false;
+    }
 
 
     public List<Student> getAll() {
@@ -126,8 +130,8 @@ public class StudentRepository implements IStudentRepository {
     }
 
 
-    //get active students //if student is active display ect
-
+    //Get active students
+    //If student is active display ect
     public List<Student> getActiveStudents() {
         List<Student> activeStudents = new ArrayList<>();
         for (Student student : studentList) {
@@ -137,6 +141,8 @@ public class StudentRepository implements IStudentRepository {
         }
         return activeStudents;
     }
+    //Get inactive students
+    //If student is not active display ect
     public List<Student> getInactiveStudents() {
         List<Student> inactiveStudents = new ArrayList<>();
         for (Student student : studentList) {
@@ -146,7 +152,6 @@ public class StudentRepository implements IStudentRepository {
         }
         return inactiveStudents;
     }
-
 
 
 }

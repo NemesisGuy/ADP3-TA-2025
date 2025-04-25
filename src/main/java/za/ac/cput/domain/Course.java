@@ -68,7 +68,7 @@ public class Course {
 
     }
 
-    //Lets check if there is space for more students
+    //First check if there is space for more students
     public boolean isThereSpace() {
         return students.size() < maxStudents;
 

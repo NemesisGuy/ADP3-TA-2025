@@ -5,8 +5,6 @@ import za.ac.cput.domain.Subject;
 
 import java.util.List;
 
-
-//
 //private String id, name;
 //private int credits;
 //private List<Lecturer> lecturers;

@@ -71,6 +71,12 @@ public class CourseRepository implements ICourseRepository {
     }
 
     @Override
+    public boolean deactivate(Integer integer) {
+        /// To be implemented
+        return false;
+    }
+
+    @Override
     public List<Course> getAll() {
         return List.of();
     }
