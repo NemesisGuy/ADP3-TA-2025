@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 public class Subject {
@@ -8,7 +10,7 @@ public class Subject {
     private String id;
     private String name;
     private int credits;
-
+    @JsonManagedReference("subject-lecturers") // Forward reference from Subject to Lecturers
     private List<Lecturer> lecturers;
 
     private Subject() {

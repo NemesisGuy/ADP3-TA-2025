@@ -5,7 +5,7 @@ import javax.mail.internet.InternetAddress;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.UUID;
-
+/// isNullOrEmpty(), isNumeric(), isValidEmail(), isWithRange(), isValidDates(),
 public class Helper {
 
     public static class IDGenerator {

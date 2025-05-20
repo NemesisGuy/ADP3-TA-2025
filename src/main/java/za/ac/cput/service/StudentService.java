@@ -35,6 +35,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public Student create(Student entity) {
+
         return this.repository.create(entity); //repository layer then save to the repository
     }
 
@@ -50,12 +51,14 @@ public class StudentService implements IStudentService {
 
     @Override
     public boolean delete(String s) {
-        Student student = this.repository.read(s);
-        if (student != null) {
-            this.repository.delete(s);
-            return true;
-        }
-        return false;
+//        Student student = this.repository.read(s);
+//        if (student != null) {
+//            this.repository.delete(s);
+//            return true;
+//        }
+//        return false;
+        throw new UnsupportedOperationException("Use deactivate() instead. Hard deletes are disabled for safety.");
+
     }
 
     @Override

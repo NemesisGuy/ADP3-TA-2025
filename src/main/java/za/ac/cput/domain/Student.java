@@ -5,7 +5,7 @@ import za.ac.cput.util.Helper;
 import java.time.LocalDate;
 
 public class Student {
-    public String gender;
+
     private final String id;
     private final String firstName;
     private final String lastName;
@@ -13,7 +13,6 @@ public class Student {
     private final Course course;
     private final boolean isActive; //now u could have a status of active or inactive or expired or expelled. /// store in a Enum
 
- public boolean isMammal(){return true;};
     public String getFirstName() {
 
         return firstName;
@@ -30,6 +29,7 @@ public class Student {
     }
 
     public int getAge() {
+
         return Helper.Dates.getAge(dateOfBirth);
     }
 
@@ -63,12 +63,7 @@ public class Student {
 
 
     private Student(Builder builder) {
-
-
         this.id = builder.id;
-
-
-
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.dateOfBirth = builder.dateOfBirth;

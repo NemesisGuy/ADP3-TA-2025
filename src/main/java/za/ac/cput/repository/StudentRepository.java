@@ -15,14 +15,14 @@ public class StudentRepository implements IStudentRepository {
 
     private final List<Student> studentList;//id 1 then id 2
 
+    //The one and only instance of the repository object
+    private static StudentRepository studentRepository = null;
+
     private StudentRepository() {
 
         this.studentList = new ArrayList<>();
 
     }
-
-    //The one and only instance of the repository object
-    private static StudentRepository studentRepository = null;
 
     public static StudentRepository getRepository() {
         if (studentRepository == null) {                        //if thee is none
@@ -48,7 +48,7 @@ public class StudentRepository implements IStudentRepository {
     }
 
 
-    // 0 1 2 3 4 5 6 7 8 9 find mean search for the student
+    // 0 1 2 3 4 5 6 7 8 9 ... X - find mean search for the student
     @Override
     public Student read(String id) {
         //for loop to iterate through the list
@@ -69,7 +69,7 @@ public class StudentRepository implements IStudentRepository {
 
         for (int i = 0; i < studentList.size(); i++)
             if (studentList.get(i).getId().equalsIgnoreCase(student.getId())) {
-                studentList.set(i, student);
+                studentList.set(i, student);//replace the student
                 return student;
 
             }
@@ -79,15 +79,7 @@ public class StudentRepository implements IStudentRepository {
 
     //This was removed because we are not permanently deleting the student
     public boolean delete(String id) {
-        for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getId().equalsIgnoreCase(id)) {
-               // studentList.remove(i);
-             //  Student StudentToBeDisabled =  studentList.get(i);
-             ///   studentList.get(i).setActive(false);
-                return true;
-            }
-        }
-        return false;
+        return deactivate(id);
     }
     // This is the delete method, it is used to soft-delete the student for data integrity
 

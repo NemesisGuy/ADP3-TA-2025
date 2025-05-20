@@ -23,6 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentRepositoryTest {
 
     private StudentRepository repository;
+    private StudentRepository repository2;
+
     private Student student1, student2;
     private final Course course = CourseFactory.create(301, "App Development 3", 100, 3, new ArrayList<>(), new ArrayList<>());
 
@@ -150,5 +152,27 @@ class StudentRepositoryTest {
         List<Student> students = repository.getAll();
         assertEquals(2, students.size());
 
+    }
+    //test values across 2 instances of the repository
+    @Test
+    void getAll2() {
+        repository2 = StudentRepository.getRepository();
+        assertTrue(repository2.getAll().size() > 0 && repository2.getAll() != null);
+        List<Student> studentsRepository2 = repository2.getAll();
+        //println(students);
+        System.out.println("Students from repository2:");
+        for (Student student : studentsRepository2) {
+            System.out.println(student);
+        }
+        studentsRepository2.remove(0);
+        System.out.println("end of students from repository2");
+        List<Student> studentsRepository = repository.getAll();
+        System.out.println("Students from repository:");
+        for (Student student : studentsRepository) {
+            System.out.println(student);
+        }
+        System.out.println("end of students from repository");
+        assertEquals(2, studentsRepository2.size());
+        System.out.println(studentsRepository2);
     }
 }

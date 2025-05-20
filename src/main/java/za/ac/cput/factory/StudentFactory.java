@@ -6,12 +6,9 @@ import za.ac.cput.domain.StudentDTO;
 import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
+//Static method factory pattern
+public class StudentFactory {
 
-public class StudentFactory implements IFactory {
-    @Override
-    public <T> T Create() {
-        return null;
-    }
     // Factory method for creating a Student object
     public static Student create(StudentDTO studentDTO) {
         // validation here
@@ -48,10 +45,6 @@ public class StudentFactory implements IFactory {
     }
     public static Student createJustNames(String id, String firstName, String lastName) {
         // validation here
-
-
-
-
 
         return new Student.Builder()
                 .setId(id)

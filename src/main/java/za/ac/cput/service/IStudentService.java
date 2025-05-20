@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface IStudentService extends IService<Student, String> {
 
+
+
     List<Student> getAll();
     // This is the delete method, it is used to soft-delete the student for data integrity
     boolean deactivate(String id);

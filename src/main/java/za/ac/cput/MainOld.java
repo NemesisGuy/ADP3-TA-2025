@@ -10,7 +10,7 @@ import za.ac.cput.util.Helper;
 import java.util.ArrayList;
 
 
-public class Main {
+public class MainOld {
     public static void main(String[] args) {
 
         System.out.println("\r======================= Course Stuff ==============================");
@@ -88,5 +88,3 @@ public class Main {
     }
 
 }
-
-

@@ -6,6 +6,7 @@ package za.ac.cput.domain;
 // public setters
 // public build method -- call private constructor in return
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import za.ac.cput.util.Helper;
 
 
@@ -17,6 +18,7 @@ public class Lecturer extends Employee {
     private final String email;
     private final String qualification;
 
+    @JsonBackReference("subject-lecturers") // Back reference from Lecturer to Subjects
     private final List<Subject> subjects;
 
     private Lecturer(Builder builder) {
